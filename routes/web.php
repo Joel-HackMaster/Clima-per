@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LecturaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::get('/register', function () {
 });
 
 Auth::routes();
+Route::prefix('home')->group(function () {
+    Route::resource('datos', LecturaController::class);
+});
 Route::group(['middleware'=>'auth'],function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 /*
 Route::resource('empleado', EmpleadoController::class);
@@ -34,3 +39,5 @@ Route::prefix('empleado')->group(function () {
 Auth::routes();
 
 */
+
+

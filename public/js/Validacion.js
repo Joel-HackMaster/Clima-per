@@ -1,10 +1,9 @@
-const nombre = document.getElementById("empleadoName");
+const nombre = document.getElementById("name");
 const identificacion = document.getElementById("empleadoDNI");
-const correo = document.getElementById("empleadoEmail");
+const correo = document.getElementById("email");
 const password = document.getElementById("password");
-const repeatPassword = document.getElementById("rapeatPassword");
-const form = document.getElementById("user");
-const boton = document.getElementById("Registro");
+const repeatPassword = document.getElementById("password-confirm");
+const boton = document.getElementById('Registro');
 var point1 = false;
 var point2 = false;
 var point3 = false;
@@ -15,51 +14,48 @@ var point5 = false;
   var valNom = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
   var valAp = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
   var valPass = /^.{4,12}$/; // 4 a 12 digitos.
-  var valDNI = / ^ \ (\ d {3}) [-]? (\ d {3}) [-]? (\ d {3}) $ /;
+  var valDNI = /^\d{8,10}$/;
   var valEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 
 // Añadir un evento input al campo de texto
 nombre.addEventListener("input", function() {
-  point1 = false;
   // Obtener el valor ingresado
   var valor = nombre.value;
   // Si el valor no cumple con la expresión regular, deshabilitar el botón y mostrar el error
   if (valor=="") {
-    mostrarEmotic("error", "🌩️")
-    mostrarMensajeError("empleadoName","Ingrese un nombre")
+    mostrarEmotic("error", "🌩️");
+    mostrarMensajeError("empleadoName","Ingrese un nombre");
   }else if(!valNom.test(valor)){
-    mostrarEmotic("error", "🤦‍♂️")
-    mostrarMensajeError("empleadoName","Error de ingreso")
+    mostrarEmotic("error", "🤦‍♂️");
+    mostrarMensajeError("empleadoName","Error de ingreso");
   } else {
     // Si cumple, habilitar el botón y ocultar el error
-    mostrarEmotic("error", "😁")
-    mostrarMensajeError("empleadoName","")
+    mostrarEmotic("error", "😁");
+    mostrarMensajeError("empleadoName","");
     point1 = true;
     if(point1 && point2 && point3 && point4 && point5) boton.disabled = false
   }
 });
 
 correo.addEventListener("input", function() {
-  point2 = false;
   var valor = correo.value;
   if (valor=="") {
-    mostrarEmotic("error", "🌩️")
-    mostrarMensajeError("empleadoEmail","Ingrese un correo")
+    mostrarEmotic("error", "🌩️");
+    mostrarMensajeError("empleadoEmail","Ingrese un correo");
   }else if(!valEmail.test(valor)){
     mostrarEmotic("error", "🤦‍♂️")
     mostrarMensajeError("empleadoEmail","Error de ingreso")
   } else {
     // Si cumple, habilitar el botón y ocultar el error
-    mostrarEmotic("error", "😁")
-    mostrarMensajeError("empleadoEmail","")
+    mostrarEmotic("error", "😁");
+    mostrarMensajeError("empleadoEmail","");
     point2 = true;
     if(point1 && point2 && point3 && point4 && point5) boton.disabled = false
   }
 });
 
 password.addEventListener("input", function() {
-  point3 = false;
   var valor = password.value;
   if (valor=="") {
     mostrarEmotic("error", "🌩️")
@@ -69,15 +65,14 @@ password.addEventListener("input", function() {
     mostrarMensajeError("password","Tamaño de 4 a 12 caracteres")
   } else {
     // Si cumple, habilitar el botón y ocultar el error
-    mostrarEmotic("error", "😁")
-    mostrarMensajeError("password","")
+    mostrarEmotic("error", "😁");
+    mostrarMensajeError("password","");
     point3 = true;
     if(point1 && point2 && point3 && point4 && point5) boton.disabled = false
   }
 });
 
 repeatPassword.addEventListener("input", function() {
-  point4 = false;
   let valor1 = password.value;
   let valor2 = repeatPassword.value;
   if (valor2=="") {
@@ -87,29 +82,29 @@ repeatPassword.addEventListener("input", function() {
     mostrarEmotic("error", "🤦‍♂️")
     mostrarMensajeError("repeatPassword","La contraseña no coincide")
   }else{
-    mostrarEmotic("error", "😁")
-    mostrarMensajeError("repeatPassword","")
+    mostrarEmotic("error", "😁");
+    mostrarMensajeError("repeatPassword","");
     point4 = true;
-    if(point1 && point2 && point3 && point4) boton.disabled = false
+    if(point1 && point2 && point3 && point4 && point5) boton.disabled = false
   }
 });
 
 identificacion.addEventListener("input", function() {
-  point5 = false;
   // Obtener el valor ingresado
   var valor = identificacion.value;
   // Si el valor no cumple con la expresión regular, deshabilitar el botón y mostrar el error
   if (valor=="") {
-    mostrarEmotic("error", "🌩️")
-    mostrarMensajeError("empleadoName","Ingrese un nombre")
-  }else if(!valNom.test(valor)){
-    mostrarEmotic("error", "🤦‍♂️")
-    mostrarMensajeError("empleadoName","Error de ingreso")
+    mostrarEmotic("error", "🌩️");
+    mostrarMensajeError("empleadoDNI","Ingrese un DNI");
+  }else if(!valDNI.test(valor)){
+    mostrarEmotic("error", "🤦‍♂️");
+    mostrarMensajeError("empleadoDNI","Error de ingreso");
   } else {
     // Si cumple, habilitar el botón y ocultar el error
-    mostrarEmotic("error", "😁")
-    mostrarMensajeError("empleadoName","")
+    mostrarEmotic("error", "😁");
+    mostrarMensajeError("empleadoDNI","");
     point5 = true;
+    console.log(point1, point2, point3, point4, point5);
     if(point1 && point2 && point3 && point4 && point5) boton.disabled = false
   }
 });
