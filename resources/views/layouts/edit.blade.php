@@ -3,7 +3,7 @@
 <div class="container">
         <div class="row vh-100 justify-content-center align-items-center">
             <div class="card o-hidden border-0 shadow-lg my-5" style="width: 35rem;">
-                <img src="{{ asset('img/Helpdesk.jpg') }}" class="card-img-top" alt="Mi imagen">
+                <img src="{{ asset('img/climate.jpg') }}" class="card-img-top" alt="Mi imagen">
                 <div class="card-body p-0">
                     <div class="p-3">
                         <div class="text-center">
@@ -60,7 +60,9 @@
                                     Editar
                             </button>
                             <br>
-                            <a href="{{url('/home/datos')}}">Regresar</a>
+                            <button href="{{url('/home')}}" class="btn btn-success btn-user btn-block">
+                                    Regresar
+                            </button>
                         </form>
                     </div>
                 </div>

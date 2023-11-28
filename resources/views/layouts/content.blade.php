@@ -5,7 +5,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="Contenido h3 mb-0 text-gray-800">Hola Bienvenido a <img id="helpy" src="img/climaper.jpg"></h1>
 
-        <a href="{{url('/home/datos')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{url('/home/datos/create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Ingreso de datos</a>
     </div>
 

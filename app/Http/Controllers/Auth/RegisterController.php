@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Models\Empleado;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -53,12 +51,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'max:255', 'confirmed'],
-            'empleadoCod' => ['required', 'string', 'max:12', 'unique:empleados'],
-            'empleadoDNI' => ['required', 'string', 'max:8'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -67,22 +64,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        // Crear un nuevo empleado en la tabla de empleados asociado al usuario
-        $empleado = Empleado::create([
-            'empleadoCod' => $data['empleadoCod'],
-            'empleadoName' => $data['name'],
-            'empleadoDNI' => $data['empleadoDNI'],
-            'empleadoEmail' => $data['email'],
-        ]);
-        return $user;
-    }
-
-    protected function redirectPath(){
-        return '/';
     }
 }

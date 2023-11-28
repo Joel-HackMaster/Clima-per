@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="img/Helpdesk.ico">
-    <title>Helpy</title>
+    <title>Clima Perú</title>
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bcss/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                 <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Helpy &copy; 2023</span>
+                        <span>Clima Perú &copy; 2023</span>
                     </div>
                 </div>
             </footer>
