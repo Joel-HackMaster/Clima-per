@@ -78,7 +78,7 @@
                                 <a class="small" href="forgot-password.html">¿Olvidaste tu Contraseña?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="{{url('/')}}">¿Ya tienes una cuenta? ¡Iniciar Sesión!</a>
+                                <a class="small" href="{{url('/login')}}">¿Ya tienes una cuenta? ¡Iniciar Sesión!</a>
                             </div>
                         </div>
                     </div>
